@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Bangkok Trip Planner 2026: ระบบวางแผนการเดินทางท่องเที่ยวกรุงเทพฯ เปรียบเทียบโรงแรม 3 แห่ง จัดลำดับเส้นทางต่อเนื่อง คำนวณงบประมาณละเอียด และค้นหาสถานที่ใกล้เคียง">
+  <title>Bangkok Trip Planner 2026 — Travel Comparison & Route Optimizer</title>
+
+  <!-- Google Fonts: Prompt (Thai) & Inter (English/Numerals) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- App Stylesheets with Cache-Buster -->
+  <link rel="stylesheet" href="css/style.css?v=2.2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.2.0">
+
+  <!-- Critical Inline Styles to Guarantee 5-Window Segregation & Prevent Horizontal Blowouts -->
+  <style>
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    /* Critical 5-Window System */
+    .app-view {
+      display: none !important;
+    }
+    .app-view.active {
+      display: block !important;
+      animation: fadeIn 0.2s ease-out;
+    }
+    @media (max-width: 899px) {
+      .nav-views-tabs {
+        display: none !important;
+      }
+    }
+    @media (min-width: 900px) {
+      .mobile-bottom-nav,
+      .view-switcher-bar {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#hotels" class="brand-wrapper" data-view="view-hotels">
+        <div class="brand-icon">BKK</div>
+        <div class="brand-text">
+          <h1>Bangkok Trip Planner</h1>
+          <p>28 พ.ย. - 2 ธ.ค. 2026 • 4 คืน 5 วัน</p>
+        </div>
+      </a>
+
+      <!-- Desktop View Tabs -->
+      <nav class="nav-views-tabs">
+        <button class="nav-tab-btn active" data-view="view-hotels">🏨 โรงแรม & ภาพรวม</button>
+        <button class="nav-tab-btn" data-view="view-planner">🗓️ แผนเที่ยวรายวัน</button>
+        <button class="nav-tab-btn" data-view="view-map">🗺️ แผนที่ & ใกล้เคียง</button>
+        <button class="nav-tab-btn" data-view="view-budget">💰 คำนวณงบประมาณ</button>
+        <button class="nav-tab-btn" data-view="view-scoring">⚖️ ประเมิน & อ้างอิง</button>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button id="savePlanBtn" class="btn btn-secondary btn-sm" title="บันทึกแผนลงเครื่อง">💾</button>
+        <button id="exportJsonBtn" class="btn btn-secondary btn-sm" title="ส่งออกไฟล์ JSON">📤</button>
+        <button id="importJsonBtn" class="btn btn-secondary btn-sm" title="นำเข้าไฟล์ JSON">📥</button>
+        <button id="printPlanBtn" class="btn btn-secondary btn-sm" title="พิมพ์หรือบันทึกเป็น PDF">🖨️</button>
+        <button id="themeToggleBtn" class="btn btn-icon" title="สลับโหมดสว่าง/มืด">☀️</button>
+        <input type="file" id="importJsonInput" accept=".json" style="display: none;">
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Sub-Bar for 5 Windows Navigation (Mobile & Tablet) -->
+  <nav class="view-switcher-bar" aria-label="สลับหน้าต่างการทำงาน 5 หน้า">
+    <div class="container view-tabs-container">
+      <button class="view-tab-btn active" data-view="view-hotels">🏨 1. โรงแรม & ภาพรวม</button>
+      <button class="view-tab-btn" data-view="view-planner">🗓️ 2. แผนเที่ยวรายวัน</button>
+      <button class="view-tab-btn" data-view="view-map">🗺️ 3. แผนที่ & ใกล้เคียง</button>
+      <button class="view-tab-btn" data-view="view-budget">💰 4. คำนวณงบประมาณ</button>
+      <button class="view-tab-btn" data-view="view-scoring">⚖️ 5. ประเมิน & อ้างอิง</button>
+    </div>
+  </nav>
+
+  <!-- Main View Container -->
+  <main class="container">
+
+    <!-- ======================================================================
+         VIEW 1: โรงแรม & ภาพรวม (Hotels & Overview)
+         ====================================================================== -->
+    <div id="view-hotels" class="app-view active">
+      <section class="section-block" style="padding-top: 1.5rem;">
+        
+        <!-- Dashboard Hero Card -->
+        <div class="dashboard-hero">
+          <div class="hero-main-card">
+            <div class="trip-meta-pill">
+              📅 28 พ.ย. — 2 ธ.ค. 2026 (4 คืน 5 วัน) • ผู้เดินทาง 1 คน (ปรับแต่งได้)
+            </div>
+            <h2 class="hero-title">ระบบวิเคราะห์เส้นทาง & คำนวณงบเที่ยวกรุงเทพฯ</h2>
+            <p class="hero-desc">
+              วางแผนการเดินทางแบบต่อเนื่อง ลดการย้อนกลับ เปรียบเทียบงบจริงระหว่าง 3 โรงแรม 
+              ตอบโจทย์วันสอบ ม.รามคำแหง, เที่ยวพระนครล่องเรือเจ้าพระยา, สวนหลวง ร.๙, สำเพ็ง และเยาวราช
+            </p>
+
+            <div class="hero-stats-row">
+              <div class="stat-item">
+                <span class="stat-label">โรงแรมที่เลือก</span>
+                <span id="heroActiveHotel" class="stat-value highlight">Infinite Ratchada</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">งบประมาณรวมทั้งทริป</span>
+                <span id="heroGrandTotal" class="stat-value">฿5,033</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">เฉลี่ยต่อคน</span>
+                <span id="heroPerPaxTotal" class="stat-value">฿5,033</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">เฉลี่ยต่อวัน (5 วัน)</span>
+                <span id="heroPerDayTotal" class="stat-value">฿1,007</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-side-card">
+            <div class="quick-winner-card best-value">
+              <div class="winner-badge-pill green">💰 ประหยัดเงินรวมสุด</div>
+              <div id="bestValueHotelName" class="quick-winner-title">Infinite Hotel @Kaset</div>
+              <div class="quick-winner-sub">ราคาห้องพักถูกที่สุด (฿3,120 / 4 คืน) ช่วยให้ยอดค่าใช้จ่ายสุทธิรวมทั้งทริปต่ำที่สุด</div>
+            </div>
+
+            <div class="quick-winner-card best-convenience">
+              <div class="winner-badge-pill indigo">⭐ สะดวกเที่ยว & คุ้มค่าสมดุล</div>
+              <div id="bestConvenienceHotelName" class="quick-winner-title">Infinite Hotel @Ratchada</div>
+              <div class="quick-winner-sub">MRT สายสีน้ำเงินตรงสู่พระนครและเยาวราช มีตุ๊กตุ๊กรับกลับฟรี คะแนนประเมินสูงสุด (8.0/10)</div>
+            </div>
+
+            <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:0.85rem; font-size:0.82rem; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center;">
+              <span>สถานะข้อมูล: <strong style="color:var(--emerald);">ตรวจสอบแล้ว 100%</strong></span>
+              <button id="resetPlanBtn" class="btn btn-secondary btn-sm">↺ รีเซ็ตเริ่มต้น</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Hotels Comparison Section -->
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              เปรียบเทียบโรงแรมทั้ง 3 แห่ง
+              <span class="section-tag">3 Properties</span>
+            </h2>
+            <p class="section-subtitle">
+              เปรียบเทียบราคาห้องรวม 4 คืน, ค่าเดินทางรวมตลอดทริป, ระยะเดินไปสถานีรถไฟฟ้า และความคุ้มค่า
+            </p>
+          </div>
+        </div>
+
+        <!-- Hotel Segmented Selector (Makes mobile view clean and single-window) -->
+        <div class="hotel-segmented-tabs" id="hotelSegmentedTabs">
+          <button class="hotel-segment-btn active" data-hotel-filter="hotel-infinite-ratchada">
+            ⭐ Infinite รัชดา (แนะนำ)
+          </button>
+          <button class="hotel-segment-btn" data-hotel-filter="hotel-infinite-kaset">
+            💰 Infinite เกษตร (ประหยัด)
+          </button>
+          <button class="hotel-segment-btn" data-hotel-filter="hotel-lee-latphrao">
+            🏢 LEE ลาดพร้าว
+          </button>
+          <button class="hotel-segment-btn" data-hotel-filter="all">
+            📊 ดูเทียบทั้ง 3 แห่ง
+          </button>
+        </div>
+
+        <div id="hotelCardsContainer" class="grid-3">
+          <!-- Dynamic Hotel Cards injected by JS -->
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ======================================================================
+         VIEW 2: แผนเที่ยวรายวัน & ไทม์ไลน์ (Trip Planner & Itinerary)
+         ====================================================================== -->
+    <div id="view-planner" class="app-view">
+      <section class="section-block">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              แผนการเดินทางรายวัน & ไทม์ไลน์ต่อเนื่อง
+              <span class="section-tag">Consecutive Routing</span>
+            </h2>
+            <p class="section-subtitle">
+              จัดลำดับสถานที่แบบต่อเนื่อง ไม่มีการเดินทางย้อนกลับโรงแรมระหว่างวัน เดินทางจบวันแล้วจึงกลับที่พัก
+            </p>
+          </div>
+          <div>
+            <span id="continuousStatusBadge" class="badge badge-verified">เส้นทางต่อเนื่องสมบูรณ์</span>
+          </div>
+        </div>
+
+        <!-- Day Tabs Bar -->
+        <div id="dayTabsContainer" class="day-tabs-bar">
+          <button class="day-tab-btn" data-day="1">
+            <span>วันที่ 1 (28 พ.ย.)</span>
+            <span class="tab-date">ถึง กทม. & เช็กอิน</span>
+          </button>
+          <button class="day-tab-btn active" data-day="2">
+            <span>วันที่ 2 (29 พ.ย.)</span>
+            <span class="tab-date">วันสอบ ม.รามคำแหง</span>
+          </button>
+          <button class="day-tab-btn" data-day="3">
+            <span>วันที่ 3 (30 พ.ย.)</span>
+            <span class="tab-date">พระนคร & ล่องเรือ</span>
+          </button>
+          <button class="day-tab-btn" data-day="4">
+            <span>วันที่ 4 (1 ธ.ค.)</span>
+            <span class="tab-date">สวนหลวง ร.๙ & เยาวราช</span>
+          </button>
+          <button class="day-tab-btn" data-day="5">
+            <span>วันที่ 5 (2 ธ.ค.)</span>
+            <span class="tab-date">เช็กเอาต์</span>
+          </button>
+        </div>
+
+        <!-- Day 2 Exam Inputs -->
+        <div id="examInputsWrapper" class="glass-card" style="margin-bottom: 1.25rem; display: none;">
+          <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--purple);">
+            🎓 กำหนดการสอบ มหาวิทยาลัยรามคำแหง หัวหมาก (วันอาทิตย์ที่ 29 พ.ย. 2026)
+          </div>
+          <div class="grid-3" style="gap: 0.75rem;">
+            <div>
+              <label class="form-label">เวลาเริ่มสอบ</label>
+              <input type="time" id="examStartTimeInput" class="form-input" value="09:30">
+            </div>
+            <div>
+              <label class="form-label">เวลาเสร็จสิ้นการสอบ</label>
+              <input type="time" id="examEndTimeInput" class="form-input" value="12:00">
+            </div>
+            <div>
+              <label class="form-label">เวลาสำรองก่อนสอบ (นาที)</label>
+              <input type="number" id="examBufferInput" class="form-input" min="15" max="120" value="45">
+            </div>
+          </div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem;">
+            * แนะนำให้ถึงมหาวิทยาลัยก่อนเวลาสอบอย่างน้อย 45 นาที เพื่อค้นหาอาคารสอบ (VKB/KTB/VPB) และตรวจบัตรประจำตัว
+          </div>
+        </div>
+
+        <!-- Day 4 Multi-Plan Strategy Switcher -->
+        <div id="day4StrategyWrapper" class="plan-switcher-box" style="display: none;">
+          <div style="font-weight: 700; font-size: 0.95rem; color: var(--primary);">
+            🔀 เลือกแนวทางการจัดเส้นทางวันที่ 4 (สวนหลวง ร.๙, สำเพ็ง, เยาวราช)
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+            เนื่องจากสถานที่อยู่คนละโซนเมือง จึงมี 3 ทางเลือกที่ผ่านการวิเคราะห์เปรียบเทียบ:
+          </div>
+
+          <div class="plan-options-grid">
+            <div id="planAButton" class="plan-option-card active" data-plan-id="plan-a-cost">
+              <div class="plan-option-title">แผน A: ประหยัดค่าเดินทางสูงสุด</div>
+              <div class="plan-option-desc">สวนหลวง ร.๙ (เช้า) ➔ ข้ามเมืองด้วย MRT/สองแถว ➔ ตลาดสำเพ็ง (บ่าย) ➔ ถนนเยาวราช (เย็น) ➔ MRT กลับที่พัก</div>
+              <div class="plan-stats-mini">
+                <span style="color:var(--emerald);">ค่าเดินทาง ~฿165 - ฿185</span>
+                <span>เดิน 4.8 กม.</span>
+              </div>
+            </div>
+
+            <div id="planBButton" class="plan-option-card" data-plan-id="plan-b-time">
+              <div class="plan-option-title">แผน B: เน้นลดเวลาเดินทาง & ไม่ย้อนทาง</div>
+              <div class="plan-option-desc">สวนหลวง ร.๙ ➔ ใช้ Grab ข้ามเข้าเมืองช่วงสาย ➔ สำเพ็ง ➔ เยาวราช ➔ MRT กลับที่พัก (ลดเวลาเปลี่ยนรถ)</div>
+              <div class="plan-stats-mini">
+                <span style="color:var(--amber);">ค่าเดินทาง ~฿220 - ฿245</span>
+                <span>เดิน 3.6 กม.</span>
+              </div>
+            </div>
+
+            <div id="planCButton" class="plan-option-card" data-plan-id="plan-c-balanced">
+              <div class="plan-option-title">แผน C: สมดุล สบาย & แวะพักตากแอร์</div>
+              <div class="plan-option-desc">สวนหลวง ร.๙ ➔ BTS สยาม/สุขุมวิท พักทานมื้อเที่ยง ➔ สำเพ็งบ่ายแก่ ➔ เยาวราชสตรีทฟู้ดค่ำ ➔ กลับที่พัก</div>
+              <div class="plan-stats-mini">
+                <span style="color:var(--primary);">ค่าเดินทาง ~฿185 - ฿195</span>
+                <span>เดิน 4.2 กม.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Timeline List -->
+        <div id="timelineContainer" class="timeline-container">
+          <!-- Legs injected by JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================================================================
+         VIEW 3: แผนที่ & สถานที่รอบตัว (Map & Nearby Explorer)
+         ====================================================================== -->
+    <div id="view-map" class="app-view">
+      <section class="section-block">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              แผนที่จำลองตำแหน่ง & เส้นทางเชื่อมต่อ
+              <span class="section-tag">Interactive Map</span>
+            </h2>
+            <p class="section-subtitle">
+              แสดงพิกัดที่ตรวจสอบแล้วของโรงแรม, มหาวิทยาลัยรามคำแหง, พระนคร, สวนหลวง ร.๙, เยาวราช, สถานี และร้านค้า
+            </p>
+          </div>
+        </div>
+
+        <!-- Map View vs Places Directory Sub-Tabs -->
+        <div class="sub-tab-bar" id="mapSubTabBar">
+          <button class="sub-tab-btn active" id="subTabMapBtn" data-subtab="map">
+            🗺️ มุมมองแผนที่ (Interactive Map)
+          </button>
+          <button class="sub-tab-btn" id="subTabPlacesBtn" data-subtab="places">
+            📍 รายชื่อสถานที่ใกล้เคียง (28 แห่ง)
+          </button>
+        </div>
+
+        <!-- Sub-View 1: Map Section -->
+        <div id="subViewMapSection">
+          <div class="map-wrapper">
+            <div class="map-disclaimer-banner">
+              <div>
+                ⚠️ <strong>ข้อความระบุชัดเจน:</strong> เส้นประสีฟ้าเป็น <em>"เส้นเชื่อมต่อพิกัดสถานที่เพื่อแสดงภาพรวมลำดับเดินทาง"</em> ไม่ใช่เส้นทางเลี้ยวตามถนนจริง
+              </div>
+              <div style="font-size:0.75rem; color:var(--primary);">
+                คลิกหมุดเพื่อดูข้อมูลและเปิด Google Maps นำทาง
+              </div>
+            </div>
+
+            <div class="map-floating-controls">
+              <button class="map-filter-pill-btn active" data-filter="all">ทั้งหมด</button>
+              <button class="map-filter-pill-btn" data-filter="hotels">🏨 โรงแรม</button>
+              <button class="map-filter-pill-btn" data-filter="transit">🚇 รถไฟฟ้า/เรือ</button>
+              <button class="map-filter-pill-btn" data-filter="attractions">🏛️ ที่เที่ยว</button>
+              <button class="map-filter-pill-btn" data-filter="food">🍜 ของกิน</button>
+              <button class="map-filter-pill-btn" data-filter="laundry">🧺 สะดวกซัก</button>
+            </div>
+
+            <div id="leafletMap"></div>
+          </div>
+        </div>
+
+        <!-- Sub-View 2: Nearby Directory Section (Hidden until switched) -->
+        <div id="subViewPlacesSection" style="display: none;">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title" style="font-size: 1.25rem;">
+                สถานที่และสิ่งอำนวยความสะดวกใกล้เคียง
+                <span class="section-tag">Nearby Directory</span>
+              </h3>
+              <p class="section-subtitle">
+                ค้นหาร้านอาหารราคาประหยัด, ตัวเลือกฮาลาล, ร้านสะดวกซัก 24 ชม., และสถานีตามโรงแรมที่เลือก
+              </p>
+            </div>
+          </div>
+
+          <!-- Filter Bar -->
+          <div class="glass-card" style="margin-bottom: 1.25rem; padding: 1rem;">
+            <div class="grid-2" style="margin-bottom: 0.85rem; gap: 0.75rem;">
+              <div>
+                <label class="form-label">ค้นหาด้วยชื่อหรือสถานที่</label>
+                <input type="text" id="nearbySearchInput" class="form-input" placeholder="พิมพ์ชื่อร้าน เช่น Otteri, ข้าวมันไก่, 7-Eleven, ฮาลาล...">
+              </div>
+              <div>
+                <label class="form-label">ระยะทางสูงสุดจากโรงแรม</label>
+                <select id="nearbyDistanceFilter" class="form-select">
+                  <option value="9999">ทุกระยะทาง</option>
+                  <option value="500">ภายใน 500 เมตร (เดินไม่เกิน 6 นาที)</option>
+                  <option value="1000">ภายใน 1 กิโลเมตร (เดินไม่เกิน 12 นาที)</option>
+                  <option value="2000">ภายใน 2 กิโลเมตร</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="nearbyCategoryFilters" class="filter-pills-bar">
+              <button class="filter-pill active" data-cat="all">ทั้งหมด</button>
+              <button class="filter-pill" data-cat="food">🍜 ร้านอาหารประหยัด</button>
+              <button class="filter-pill" data-cat="halal">🟢 อาหารฮาลาล (Halal)</button>
+              <button class="filter-pill" data-cat="laundry">🧺 ร้านสะดวกซัก 24 ชม.</button>
+              <button class="filter-pill" data-cat="transit">🚇 รถไฟฟ้า / ท่าเรือ</button>
+              <button class="filter-pill" data-cat="24h">🕒 เปิด 24 ชั่วโมง</button>
+            </div>
+          </div>
+
+          <div id="nearbyCardsGrid" class="grid-3">
+            <!-- Nearby place cards injected by JS -->
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ======================================================================
+         VIEW 4: คำนวณงบประมาณ (Budget Calculator)
+         ====================================================================== -->
+    <div id="view-budget" class="app-view">
+      <section class="section-block">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              เครื่องคิดเลขงบประมาณปรับแต่งได้
+              <span class="section-tag">Budget Calculator</span>
+            </h2>
+            <p class="section-subtitle">
+              ปรับแต่งราคาห้อง, จำนวนคืน, จำนวนคน, งบอาหารต่อวัน และค่าเดินทาง เพื่อดูผลรวมแบบเรียลไทม์
+            </p>
+          </div>
+          <div>
+            <button id="copyBudgetSummaryBtn" class="btn btn-primary btn-sm">📋 คัดลอกสรุปงบ</button>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap: 1.25rem; margin-bottom: 1.5rem;">
+          
+          <!-- Parameters Left Card -->
+          <div class="glass-card">
+            <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:0.85rem; color:var(--primary);">⚙️ กำหนดค่างบประมาณทริป</h3>
+            
+            <div class="grid-2" style="gap:0.75rem;">
+              <div class="form-group">
+                <label class="form-label">จำนวนคืนที่พัก</label>
+                <input type="number" id="budgetNightsInput" class="form-input" min="1" max="30" value="4">
+              </div>
+              <div class="form-group">
+                <label class="form-label">จำนวนผู้เดินทาง (คน)</label>
+                <input type="number" id="budgetPaxInput" class="form-input" min="1" max="10" value="1">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                <label class="form-label" style="margin-bottom:0;">งบอาหารต่อวัน: ฿<span id="budgetFoodDailyVal">180</span></label>
+                <span style="font-size:0.72rem; color:var(--text-dim);">(เป้าหมายตั้งต้น 180 บ./วัน)</span>
+              </div>
+              <input type="range" id="budgetFoodDailyInput" min="100" max="600" step="10" value="180" style="width:100%; accent-color:var(--primary);">
+              <div id="budgetMealSplitPreview" style="margin-top:0.35rem;"></div>
+            </div>
+
+            <div class="grid-2" style="gap:0.75rem;">
+              <div class="form-group">
+                <label class="form-label">จำนวนรอบซัก-อบผ้า</label>
+                <input type="number" id="budgetLaundryCyclesInput" class="form-input" min="0" max="10" value="1">
+              </div>
+              <div class="form-group">
+                <label class="form-label">ค่างบซัก-อบต่อรอบ (บาท)</label>
+                <input type="number" id="budgetLaundryCostInput" class="form-input" min="50" max="300" step="10" value="110">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">สมมติฐานค่า Grab ต่อเที่ยว (บาท)</label>
+              <input type="number" id="budgetGrabFareInput" class="form-input" min="30" max="300" step="5" value="50">
+            </div>
+
+            <div class="form-group" style="padding-top:0.5rem; border-top:1px dashed var(--border-subtle); margin-bottom:0;">
+              <div class="toggle-wrapper">
+                <div>
+                  <div style="font-weight:600; font-size:0.85rem;">บริการตุ๊กตุ๊กฟรี Infinite Ratchada</div>
+                  <div style="font-size:0.72rem; color:var(--text-muted);">คิดค่าขากลับ MRT ห้วยขวางมาโรงแรมเป็น ฿0</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="tuktukToggleCheckbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Prices Override Right Card -->
+          <div class="glass-card">
+            <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:0.85rem; color:var(--primary);">🏨 ราคาห้องพักรวมตลอด 4 คืน (แก้ไขได้)</h3>
+            <div style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.85rem;">
+              * ตัวเลขตั้งต้นคือราคาห้องพักรวม 4 คืนของผู้ใช้ ระบบคำนวณราคาเฉลี่ยต่อคืนให้อัตโนมัติ
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">LEE Hotel Lat Phrao (ราคา 4 คืน)</label>
+              <input type="number" id="budgetHotelLeeInput" class="form-input" min="1000" max="20000" step="50" value="4050">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Infinite Hotel @Ratchada (ราคา 4 คืน)</label>
+              <input type="number" id="budgetHotelRatchadaInput" class="form-input" min="1000" max="20000" step="50" value="3480">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Infinite Hotel @Kaset/Senanikom (ราคา 4 คืน)</label>
+              <input type="number" id="budgetHotelKasetInput" class="form-input" min="1000" max="20000" step="50" value="3120">
+            </div>
+
+            <div style="background:rgba(0,0,0,0.25); border-radius:var(--radius-md); padding:0.75rem; font-size:0.78rem; color:var(--amber); line-height:1.4;">
+              ⚠️ <strong>เงินสำรองมัดจำคีย์การ์ด:</strong> แนะนำเตรียมเงินสดสำรอง 500 บาท สำหรับมัดจำคีย์การ์ดตอนเช็กอิน (ได้รับคืนเต็มจำนวนเมื่อเช็กเอาต์ จึงไม่ถูกนับเป็นรายจ่ายสุทธิ)
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="glass-card">
+          <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:0.85rem;">📊 ตารางเปรียบเทียบงบประมาณสุทธิ 3 โรงแรม</h3>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>โรงแรม</th>
+                  <th>ค่าห้องพัก</th>
+                  <th>ค่ารถไฟฟ้า/เรือ/รถเมล์</th>
+                  <th>ค่า Grab สำรอง</th>
+                  <th>ค่าอาหาร</th>
+                  <th>ค่าซัก-อบผ้า</th>
+                  <th>งบประมาณรวมสุทธิ</th>
+                </tr>
+              </thead>
+              <tbody id="budgetComparisonRows">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================================================================
+         VIEW 5: ประเมิน & อ้างอิง (Score & Sources)
+         ====================================================================== -->
+    <div id="view-scoring" class="app-view">
+      <section class="section-block">
+        
+        <!-- Scoring Model Section -->
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">
+              ระบบคะแนนถ่วงน้ำหนัก 10 คะแนน
+              <span class="section-tag">Weighted Score Matrix</span>
+            </h2>
+            <p class="section-subtitle">
+              ให้คะแนนแยก 10 ด้านตามเหตุผลเชิงประจักษ์ เลื่อนปรับเปอร์เซ็นต์น้ำหนักความสำคัญได้ตามความต้องการ
+            </p>
+          </div>
+          <div>
+            <span style="font-size:0.82rem; color:var(--text-muted); margin-right:4px;">อันดับ 1 ตอนนี้:</span>
+            <span id="scoreWinnerBadge" class="badge badge-verified">Infinite Ratchada (8.0/10)</span>
+          </div>
+        </div>
+
+        <div id="scoringCriteriaList" class="grid-2" style="margin-bottom: 2rem;">
+          <!-- Injected by JS -->
+        </div>
+
+        <!-- Sources Table Section -->
+        <div class="section-header">
+          <div>
+            <h3 class="section-title" style="font-size: 1.25rem;">
+              ดัชนีแหล่งข้อมูล & ความน่าเชื่อถือ
+              <span class="section-tag">Transparency Index</span>
+            </h3>
+            <p class="section-subtitle">
+              ข้อมูลทุกชิ้นได้รับการตรวจสอบจากเว็บไซต์ทางการ, ประกาศอัตราค่าโดยสาร, และ Google Maps พร้อมวันที่ตรวจสอบ
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>แหล่งข้อมูล / ระบบ</th>
+                  <th>ระดับความเชื่อมั่น</th>
+                  <th>คำอธิบาย</th>
+                  <th>วันที่ตรวจสอบ</th>
+                  <th>ลิงก์อ้างอิง</th>
+                </tr>
+              </thead>
+              <tbody id="sourcesTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar (App Tabs) -->
+  <nav class="mobile-bottom-nav">
+    <button class="mobile-nav-item active" data-view="view-hotels">
+      <span class="mobile-nav-icon">🏨</span>
+      <span>โรงแรม</span>
+    </button>
+    <button class="mobile-nav-item" data-view="view-planner">
+      <span class="mobile-nav-icon">🗓️</span>
+      <span>แผนเที่ยว</span>
+    </button>
+    <button class="mobile-nav-item" data-view="view-map">
+      <span class="mobile-nav-icon">🗺️</span>
+      <span>แผนที่</span>
+    </button>
+    <button class="mobile-nav-item" data-view="view-budget">
+      <span class="mobile-nav-icon">💰</span>
+      <span>งบประมาณ</span>
+    </button>
+    <button class="mobile-nav-item" data-view="view-scoring">
+      <span class="mobile-nav-icon">⚖️</span>
+      <span>ประเมิน</span>
+    </button>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <div>
+        <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.2rem;">Bangkok Trip Planner 2026</div>
+        <div>พัฒนาด้วย HTML5, CSS3, Vanilla JavaScript, และ Leaflet Maps • รองรับ GitHub Pages 100%</div>
+      </div>
+      <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+        <span class="badge badge-verified">Static Ready</span>
+        <span class="badge badge-verified">5 Tab Windows</span>
+        <span class="badge badge-verified">Mobile Optimized</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Element -->
+  <div id="toastNotice" class="toast-notice">
+    <span>ℹ️</span>
+    <span id="toastText">การดำเนินการเสร็จสมบูรณ์</span>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Application Modules with Cache Buster -->
+  <script src="js/data-manager.js?v=2.2.0"></script>
+  <script src="js/budget-calc.js?v=2.2.0"></script>
+  <script src="js/route-optimizer.js?v=2.2.0"></script>
+  <script src="js/score-calc.js?v=2.2.0"></script>
+  <script src="js/map-controller.js?v=2.2.0"></script>
+  <script src="js/app.js?v=2.2.0"></script>
+</body>
+</html>

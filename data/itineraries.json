@@ -1,0 +1,565 @@
+{
+  "commonDestinations": {
+    "exam": "place-ramkhamhaeng",
+    "phraNakhonCore": ["place-wat-pho", "place-tha-tien-pier", "place-wat-arun", "place-grand-palace", "place-tha-chang-pier"],
+    "day4Core": ["place-suan-luang-rama9", "place-sampheng", "place-yaowarat"]
+  },
+  "days": [
+    {
+      "dayNumber": 1,
+      "date": "2026-11-28",
+      "dayOfWeek": "วันเสาร์",
+      "title": "เดินทางถึงกรุงเทพฯ เช็กอิน & สำรวจละแวกโรงแรม",
+      "concept": "เข้าที่พัก พักผ่อน สำรวจร้านอาหาร ร้านสะดวกซื้อ และร้านซักผ้าใกล้โรงแรม เพื่อเตรียมความพร้อมสำหรับวันสอบพรุ่งนี้",
+      "hotelSpecificLegs": {
+        "hotel-latphrao": [
+          {
+            "segmentId": "d1-lp-1",
+            "time": "14:00 - 14:30",
+            "from": "จุดเริ่มต้นเดินทางของผู้ใช้ (ระบุเองได้)",
+            "to": "LEE Hotel Lat Phrao",
+            "mode": "user_custom",
+            "modeLabel": "เดินทางมาโรงแรม",
+            "fare": 0,
+            "fareStatus": "user_input",
+            "distanceKm": 0,
+            "notes": "เช็กอินเข้าห้องพัก จัดสัมภาระ"
+          },
+          {
+            "segmentId": "d1-lp-2",
+            "time": "15:30 - 16:30",
+            "from": "LEE Hotel Lat Phrao",
+            "to": "Otteri Wash & Dry ลาดพร้าว 87",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.45,
+            "walkMinutes": 6,
+            "notes": "เดินสำรวจร้านสะดวกซัก 24 ชม. ในซอยลาดพร้าว 87 และตรวจสอบตู้ซักผ้า"
+          },
+          {
+            "segmentId": "d1-lp-3",
+            "time": "17:00 - 18:30",
+            "from": "Otteri Wash & Dry ลาดพร้าว 87",
+            "to": "ศูนย์อาหาร อิมพีเรียล เวิลด์ ลาดพร้าว / Big C",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.35,
+            "walkMinutes": 4,
+            "notes": "ทานอาหารเย็นราคาประหยัด (ข้าวมันไก่/อาหารตามสั่ง 50-60 บาท) แวะ 7-Eleven ซื้อน้ำดื่ม"
+          },
+          {
+            "segmentId": "d1-lp-4",
+            "time": "19:00",
+            "from": "ศูนย์อาหาร อิมพีเรียล เวิลด์ ลาดพร้าว",
+            "to": "LEE Hotel Lat Phrao",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.15,
+            "walkMinutes": 2,
+            "notes": "กลับเข้าโรงแรม พักผ่อนและทบทวนหนังสือสอบ"
+          }
+        ],
+        "hotel-ratchada": [
+          {
+            "segmentId": "d1-rc-1",
+            "time": "14:00 - 14:30",
+            "from": "จุดเริ่มต้นเดินทางของผู้ใช้ (ระบุเองได้)",
+            "to": "Infinite Hotel @Ratchada",
+            "mode": "user_custom",
+            "modeLabel": "เดินทางมาโรงแรม",
+            "fare": 0,
+            "fareStatus": "user_input",
+            "distanceKm": 0,
+            "notes": "เช็กอินเข้าห้องพัก ตรวจสอบรอบรถตุ๊กตุ๊กรับส่งของโรงแรม"
+          },
+          {
+            "segmentId": "d1-rc-2",
+            "time": "15:30 - 16:30",
+            "from": "Infinite Hotel @Ratchada",
+            "to": "Maru Laundry รัชดา (ซอยอินทามระ 22)",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.35,
+            "walkMinutes": 4,
+            "notes": "เดินสำรวจร้านสะดวกซัก Maru Laundry และร้าน Wash House"
+          },
+          {
+            "segmentId": "d1-rc-3",
+            "time": "17:00 - 18:30",
+            "from": "Maru Laundry รัชดา",
+            "to": "ร้านอาหารตามสั่งปากซอยอินทามระ 22 / 7-Eleven",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.2,
+            "walkMinutes": 3,
+            "notes": "ทานอาหารเย็นราคาประหยัด (45-60 บาท) แวะซื้อของใช้และน้ำดื่มที่ 7-Eleven"
+          },
+          {
+            "segmentId": "d1-rc-4",
+            "time": "19:00",
+            "from": "ร้านอาหารตามสั่งปากซอยอินทามระ 22",
+            "to": "Infinite Hotel @Ratchada",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.12,
+            "walkMinutes": 2,
+            "notes": "กลับห้องพักเตรียมตัวสอบพรุ่งนี้"
+          }
+        ],
+        "hotel-kaset": [
+          {
+            "segmentId": "d1-ks-1",
+            "time": "14:00 - 14:30",
+            "from": "จุดเริ่มต้นเดินทางของผู้ใช้ (ระบุเองได้)",
+            "to": "Infinite Hotel @Kaset / Senanikom",
+            "mode": "user_custom",
+            "modeLabel": "เดินทางมาโรงแรม",
+            "fare": 0,
+            "fareStatus": "user_input",
+            "distanceKm": 0,
+            "notes": "เช็กอินเข้าห้องพัก"
+          },
+          {
+            "segmentId": "d1-ks-2",
+            "time": "15:30 - 16:30",
+            "from": "Infinite Hotel @Kaset",
+            "to": "Otteri Wash & Dry เสนานิคม 1 (พหลฯ 32)",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.3,
+            "walkMinutes": 4,
+            "notes": "สำรวจร้านสะดวกซัก Otteri ในซอยเสนานิคม 1"
+          },
+          {
+            "segmentId": "d1-ks-3",
+            "time": "17:00 - 18:30",
+            "from": "Otteri Wash & Dry เสนานิคม 1",
+            "to": "ตลาดอมรพันธ์ / สตรีทฟู้ดเสนานิคม",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.5,
+            "walkMinutes": 6,
+            "notes": "ทานมื้อเย็นราคาประหยัด ข้าวไข่เจียว/ข้าวมันไก่ (40-50 บาท) สไตล์นักศึกษา"
+          },
+          {
+            "segmentId": "d1-ks-4",
+            "time": "19:00",
+            "from": "ตลาดอมรพันธ์",
+            "to": "Infinite Hotel @Kaset",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.5,
+            "walkMinutes": 6,
+            "notes": "กลับห้องพัก นอนหลับพักผ่อนล่วงหน้าเพื่อเตรียมสอบ"
+          }
+        ]
+      }
+    },
+    {
+      "dayNumber": 2,
+      "date": "2026-11-29",
+      "dayOfWeek": "วันอาทิตย์",
+      "title": "วันสอบ: เดินทางไป-กลับ มหาวิทยาลัยรามคำแหง หัวหมาก",
+      "concept": "มุ่งเน้นความปลอดภัยเรื่องเวลา เดินทางตรงจากโรงแรมไปมหาวิทยาลัยรามคำแหง เผื่อเวลาก่อนสอบ 45 นาที และเดินทางกลับโรงแรมหลังสอบเสร็จ ไม่แวะเที่ยวหลายจุดให้เหนื่อยล้า",
+      "hotelSpecificLegs": {
+        "hotel-latphrao": [
+          {
+            "segmentId": "d2-lp-1",
+            "time": "08:00 - 08:35",
+            "from": "LEE Hotel Lat Phrao",
+            "to": "มหาวิทยาลัยรามคำแหง หัวหมาก (ประตู 1)",
+            "mode": "bmta_bus",
+            "modeLabel": "รถเมล์ปรับอากาศ (สาย 92, 122, 137)",
+            "fare": 20,
+            "fareStatus": "official_verified",
+            "distanceKm": 4.5,
+            "travelMinutes": 30,
+            "walkMinutes": 5,
+            "notes": "ขึ้นรถเมล์หน้าอิมพีเรียล ลาดพร้าว ถึง ม.รามฯ 08:35 เผื่อเวลาก่อนสอบ 55 นาที ค่ารถ 20 บาท"
+          },
+          {
+            "segmentId": "d2-lp-2",
+            "time": "09:30 - 12:00",
+            "from": "มหาวิทยาลัยรามคำแหง หัวหมาก",
+            "to": "มหาวิทยาลัยรามคำแหง หัวหมาก (อาคารสอบ VKB/KTB)",
+            "mode": "walk",
+            "modeLabel": "เข้าห้องสอบ",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.2,
+            "notes": "เวลาสอบตามสมมติฐาน (ผู้ใช้สามารถแก้ไขเวลาเริ่ม-สิ้นสุดสอบได้)"
+          },
+          {
+            "segmentId": "d2-lp-3",
+            "time": "12:15 - 13:15",
+            "from": "อาคารสอบ",
+            "to": "โรงอาหาร ม.รามคำแหง / ร้านอาหารหน้า ม.รามฯ",
+            "mode": "walk",
+            "modeLabel": "เดินเท้า",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.3,
+            "notes": "ทานอาหารกลางวันราคาประหยัดแถวหน้า ม.รามคำแหง (งบ 50-60 บาท)"
+          },
+          {
+            "segmentId": "d2-lp-4",
+            "time": "13:30 - 14:15",
+            "from": "มหาวิทยาลัยรามคำแหง หัวหมาก",
+            "to": "LEE Hotel Lat Phrao",
+            "mode": "bmta_bus",
+            "modeLabel": "รถเมล์ปรับอากาศ (สาย 92, 137, 545)",
+            "fare": 20,
+            "fareStatus": "official_verified",
+            "distanceKm": 4.5,
+            "travelMinutes": 35,
+            "walkMinutes": 5,
+            "notes": "เดินทางกลับโรงแรม พักผ่อนหลังสอบเสร็จ (ค่าโดยสารรวมวันสอบ = 40 บาท ต่ำกว่างบตั้งต้น 70 บาท)"
+          }
+        ],
+        "hotel-ratchada": [
+          {
+            "segmentId": "d2-rc-1",
+            "time": "07:30 - 07:50",
+            "from": "Infinite Hotel @Ratchada",
+            "to": "MRT ห้วยขวาง (BL18)",
+            "mode": "grab_or_moto",
+            "modeLabel": "วินมอเตอร์ไซค์ / Grab สำรอง",
+            "fare": 30,
+            "fareStatus": "estimated_standard",
+            "distanceKm": 1.7,
+            "travelMinutes": 10,
+            "notes": "นั่งวินหรือ Grab ออกจากโรงแรมเพื่อประหยัดแรงและเวลาในเช้าวันสอบ (หรือใช้รอบรถโรงแรมหากมี)"
+          },
+          {
+            "segmentId": "d2-rc-2",
+            "time": "07:55 - 08:35",
+            "from": "MRT ห้วยขวาง",
+            "to": "มหาวิทยาลัยรามคำแหง หัวหมาก",
+            "mode": "mrt_then_boat",
+            "modeLabel": "MRT ห้วยขวาง -> MRT เพชรบุรี (21บ.) ต่อเรือแสนแสบ (14บ.)",
+            "fare": 35,
+            "fareStatus": "official_verified",
+            "distanceKm": 8.0,
+            "travelMinutes": 35,
+            "walkMinutes": 5,
+            "notes": "เรือแสนแสบไม่ติดไฟแดง ถึงท่ารามคำแหง เดินเข้า ม. สะดวกมาก ถึงก่อนสอบ 55 นาที"
+          },
+          {
+            "segmentId": "d2-rc-3",
+            "time": "09:30 - 12:00",
+            "from": "มหาวิทยาลัยรามคำแหง หัวหมาก",
+            "to": "อาคารสอบ",
+            "mode": "walk",
+            "modeLabel": "เข้าสอบ",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.2,
+            "notes": "ช่วงเวลาสอบ"
+          },
+          {
+            "segmentId": "d2-rc-4",
+            "time": "12:15 - 13:15",
+            "from": "อาคารสอบ",
+            "to": "ร้านอาหารหน้า ม.รามคำแหง",
+            "mode": "walk",
+            "modeLabel": "ทานมื้อเที่ยง",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.3,
+            "notes": "ทานข้าวกลางวันหลังสอบเสร็จ"
+          },
+          {
+            "segmentId": "d2-rc-5",
+            "time": "13:30 - 14:15",
+            "from": "มหาวิทยาลัยรามคำแหง",
+            "to": "MRT ห้วยขวาง",
+            "mode": "boat_then_mrt",
+            "modeLabel": "เรือแสนแสบท่ารามฯ -> ท่าอโศก (14บ.) + MRT เพชรบุรี -> ห้วยขวาง (21บ.)",
+            "fare": 35,
+            "fareStatus": "official_verified",
+            "distanceKm": 8.0,
+            "travelMinutes": 40,
+            "notes": "นั่งเรือแสนแสบต่อ MRT กลับมาถึงสถานีห้วยขวาง"
+          },
+          {
+            "segmentId": "d2-rc-6",
+            "time": "14:20 - 14:35",
+            "from": "MRT ห้วยขวาง",
+            "to": "Infinite Hotel @Ratchada",
+            "mode": "hotel_tuktuk_free",
+            "modeLabel": "ตุ๊กตุ๊กฟรีของโรงแรม (ขากลับ 0 บาท)",
+            "fare": 0,
+            "fareStatus": "user_baseline_assumption",
+            "distanceKm": 1.7,
+            "travelMinutes": 10,
+            "notes": "ใช้บริการรถรับส่งฟรีของโรงแรมจาก MRT ห้วยขวาง กลับเข้าที่พัก (รวมค่าเดินทางวันสอบ 100 บาท พอดีงบตั้งต้น)"
+          }
+        ],
+        "hotel-kaset": [
+          {
+            "segmentId": "d2-ks-1",
+            "time": "07:15 - 07:27",
+            "from": "Infinite Hotel @Kaset",
+            "to": "BTS เสนานิคม (N12)",
+            "mode": "walk",
+            "modeLabel": "เดินเท้าไปสถานี BTS",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.8,
+            "walkMinutes": 12,
+            "notes": "ออกแต่เช้า 07:15 เพราะระยะทางไปรามคำแหงไกลที่สุด (~14 กม.)"
+          },
+          {
+            "segmentId": "d2-ks-2",
+            "time": "07:30 - 08:35",
+            "from": "BTS เสนานิคม",
+            "to": "มหาวิทยาลัยรามคำแหง หัวหมาก",
+            "mode": "bts_transfer_mrt_boat",
+            "modeLabel": "BTS เสนานิคม -> หมอชิต (25บ.) + MRT จตุจักร -> เพชรบุรี (35บ.) + เรือแสนแสบ (14บ.)",
+            "fare": 74,
+            "fareStatus": "official_verified",
+            "distanceKm": 13.5,
+            "travelMinutes": 60,
+            "notes": "เดินทาง 3 ต่อเพื่อเลี่ยงรถติดชัวร์ หรือทางเลือกประหยัดคือนั่งรถเมล์ตรงสาย 545/126 (25 บาท แต่อาจติดไฟแดง)"
+          },
+          {
+            "segmentId": "d2-ks-3",
+            "time": "09:30 - 12:00",
+            "from": "มหาวิทยาลัยรามคำแหง",
+            "to": "อาคารสอบ",
+            "mode": "walk",
+            "modeLabel": "เข้าสอบ",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.2,
+            "notes": "เข้าสอบตามกำหนดการ"
+          },
+          {
+            "segmentId": "d2-ks-4",
+            "time": "12:15 - 13:15",
+            "from": "อาคารสอบ",
+            "to": "ร้านอาหารหน้า ม.รามฯ",
+            "mode": "walk",
+            "modeLabel": "ทานมื้อเที่ยง",
+            "fare": 0,
+            "fareStatus": "always_free",
+            "distanceKm": 0.3,
+            "notes": "พักรับประทานอาหารกลางวัน"
+          },
+          {
+            "segmentId": "d2-ks-5",
+            "time": "13:30 - 14:45",
+            "from": "มหาวิทยาลัยรามคำแหง",
+            "to": "Infinite Hotel @Kaset",
+            "mode": "boat_mrt_bts",
+            "modeLabel": "เรือแสนแสบ (14บ.) + MRT เพชรบุรีไปจตุจักร (35บ.) + BTS หมอชิตไปเสนานิคม (25บ.)",
+            "fare": 74,
+            "fareStatus": "official_verified",
+            "distanceKm": 13.5,
+            "travelMinutes": 65,
+            "notes": "เดินทางกลับโรงแรม (ค่าโดยสารไป-กลับ 148 บาท ประหยัดกว่างบเดิม 180 บาท)"
+          }
+        ]
+      }
+    },
+    {
+      "dayNumber": 3,
+      "date": "2026-11-30",
+      "dayOfWeek": "วันจันทร์",
+      "title": "เที่ยวพระนคร วัดสำคัญ & ล่องเรือด่วนเจ้าพระยา",
+      "concept": "เส้นทางต่อเนื่อง ไม่มีการเดินทางย้อนกลับโรงแรมระหว่างวัน: โรงแรม -> MRT สนามไชย -> วัดโพธิ์ -> ข้ามฟากวัดอรุณ -> ข้ามกลับท่าเตียน -> พระบรมมหาราชวังและวัดพระแก้ว -> ท่าเรือท่าช้าง ล่องเรือด่วนเจ้าพระยาชมวิว -> ทานอาหารย่านเมืองเก่า -> กลับโรงแรม",
+      "sharedAttractionSequence": [
+        {
+          "stepOrder": 1,
+          "placeId": "place-mrt-sanamchai",
+          "name": "MRT สนามไชย (BL31)",
+          "action": "จุดเริ่มต้นย่านพระนคร ชมนิทรรศการสถานีรถไฟฟ้าที่สวยที่สุดในไทย ออกทางออก 1 (มิวเซียมสยาม)"
+        },
+        {
+          "stepOrder": 2,
+          "placeId": "place-wat-pho",
+          "name": "วัดโพธิ์ (วัดพระเชตุพน)",
+          "action": "เดิน 300 เมตรจาก MRT เข้าสักการะพระพุทธไสยาสน์ (พระนอน) และชมเจดีย์สี่รัชกาล (คนไทยเข้าฟรี)"
+        },
+        {
+          "stepOrder": 3,
+          "placeId": "place-tha-tien-pier",
+          "name": "ท่าเรือท่าเตียน",
+          "action": "เดิน 250 เมตรจากวัดโพธิ์ไปท่าเรือ ขึ้นเรือข้ามฟากไปฝั่งธนบุรี (ค่าเรือข้ามฟาก 5 บาท)"
+        },
+        {
+          "stepOrder": 4,
+          "placeId": "place-wat-arun",
+          "name": "วัดอรุณราชวราราม (วัดแจ้ง)",
+          "action": "ชมพระปรางค์วัดอรุณริมแม่น้ำเจ้าพระยา ถ่ายรูปมุมมหาชน (คนไทยเข้าฟรี)"
+        },
+        {
+          "stepOrder": 5,
+          "placeId": "place-tha-tien-pier",
+          "name": "นั่งเรือข้ามฟากกลับท่าเตียน",
+          "action": "ข้ามเรือกลับฝั่งพระนคร (5 บาท) เดินตามถนนมหาราช ชมตึกเก่าและวิวแม่น้ำ"
+        },
+        {
+          "stepOrder": 6,
+          "placeId": "place-grand-palace",
+          "name": "พระบรมมหาราชวัง และ วัดพระแก้ว",
+          "action": "เดิน 700 เมตรจากท่าเตียนไปเข้าประตูวิเศษไชยศรี สักการะพระแก้วมรกต (คนไทยเข้าฟรี แต่งกายสุภาพ)"
+        },
+        {
+          "stepOrder": 7,
+          "placeId": "place-tha-chang-pier",
+          "name": "ท่าเรือท่าช้าง (ล่องเรือด่วนเจ้าพระยาธงส้ม)",
+          "action": "เดิน 250 เมตรจากวัดพระแก้วไปท่าช้าง ลงเรือด่วนเจ้าพระยาธงส้ม (16 บาท) ล่องชมทิวทัศน์แม่น้ำเจ้าพระยา ลอดสะพานพระราม 8 ไปท่าพระอาทิตย์ หรือล่องชมวิวไปสะพานพุทธ"
+        },
+        {
+          "stepOrder": 8,
+          "placeId": "place-mrt-sanamchai",
+          "name": "เดินทางกลับสถานี MRT",
+          "action": "นั่งเรือด่วนธงส้มกลับมาขึ้นท่าเตียน/ราชินี (16 บาท) หรือเดินจากท่าพระอาทิตย์แวะทานอาหารก่อนขึ้น MRT"
+        }
+      ],
+      "hotelSpecificCosts": {
+        "hotel-latphrao": {
+          "transitDescription": "MRT สายสีเหลือง ลาดพร้าว 83 -> สถานีลาดพร้าว (22บ.) + MRT สายสีน้ำเงิน ลาดพร้าว -> สนามไชย (43บ.) ไป-กลับ 130บ. + ค่าเรือข้ามฟาก 5x2=10บ. + ค่าเรือด่วนธงส้ม 16x2=32บ.",
+          "totalTransitCost": 172,
+          "baselineCostInModel": 176,
+          "notes": "ค่าเดินทางจริงที่คำนวณได้ 172 บาท ประหยัดกว่าแบบจำลองเดิม 4 บาท"
+        },
+        "hotel-ratchada": {
+          "transitDescription": "MRT สายสีน้ำเงิน ห้วยขวาง -> สนามไชย วิ่งตรงไม่ต้องต่อสาย (43บ.) ไป-กลับ 86บ. + ค่าเรือข้ามฟาก 5x2=10บ. + ค่าเรือด่วนธงส้ม 16x2=32บ. + ขากลับโรงแรมใช้ตุ๊กตุ๊กฟรี (0บ.)",
+          "totalTransitCost": 128,
+          "baselineCostInModel": 126,
+          "notes": "เดินทางตรงสายสีน้ำเงิน สะดวกที่สุดใน 3 โรงแรม ค่าใช้จ่าย 128 บาท (ใกล้เคียง 126 บาทเดิมมาก)"
+        },
+        "hotel-kaset": {
+          "transitDescription": "BTS เสนานิคม -> หมอชิต (25บ.) + MRT จตุจักร -> สนามไชย (43บ.) ไป-กลับ 136บ. + ค่าเรือข้ามฟาก 10บ. + ค่าเรือด่วนธงส้ม 32บ.",
+          "totalTransitCost": 178,
+          "baselineCostInModel": 176,
+          "notes": "ต้องเปลี่ยนขบวนที่หมอชิต/จตุจักร ค่าเดินทางจริง 178 บาท (ใกล้เคียง 176 บาทเดิม)"
+        }
+      }
+    },
+    {
+      "dayNumber": 4,
+      "date": "2026-12-01",
+      "dayOfWeek": "วันอังคาร",
+      "title": "BTS สายสีเขียว, สวนหลวง ร.๙, ตลาดสำเพ็ง & ถนนเยาวราช",
+      "concept": "สถานที่เป้าหมายอยู่คนละมุมเมือง (สวนหลวง ร.๙ อยู่ทิศตะวันออกเฉียงใต้ / สำเพ็ง-เยาวราช อยู่ทิศตะวันตกเฉียงใต้) จึงต้องวางแผนแบบต่อเนื่องเพื่อไม่ให้เดินทางย้อนไปย้อนมา มี 3 แผนทางเลือกให้เปรียบเทียบ",
+      "plans": [
+        {
+          "planId": "plan-a-cost",
+          "planName": "แผน A: เน้นประหยัดค่าเดินทางสูงสุด (Cost Optimized)",
+          "philosophy": "ใช้รถไฟฟ้าสายหลักร่วมกับสองแถว/รถเมล์ จัดลำดับตามแนวเส้นทางตะวันออกสู่ใจกลางเมือง",
+          "sequenceSummary": "โรงแรม -> สวนหลวง ร.๙ (ช่วงเช้า 08:30-11:00) -> ตลาดสำเพ็ง (ช่วงบ่าย 13:00-16:30) -> เดินทะลุถนนเยาวราช (สตรีทฟู้ดเย็น 17:00-20:00) -> กลับโรงแรม",
+          "reasoning": "สวนหลวง ร.๙ ร่มรื่นและอากาศดีที่สุดช่วงเช้า ส่วนตลาดสำเพ็งเปิดเฉพาะกลางวัน และเยาวราชเปิดสตรีทฟู้ดเต็มที่ช่วงค่ำวันอังคาร การไปตามลำดับนี้จึงสอดคล้องกับเวลาทำการจริง 100% และเดินทางต่อเนื่องเป็นวงกลม",
+          "estimatedTransitCosts": {
+            "hotel-latphrao": 175,
+            "hotel-ratchada": 165,
+            "hotel-kaset": 185
+          },
+          "walkingDistanceKm": 4.8,
+          "convenienceScore": 8.5,
+          "timeEfficiencyScore": 8.0,
+          "stops": [
+            {
+              "time": "08:00 - 11:00",
+              "placeId": "place-suan-luang-rama9",
+              "name": "สวนหลวง ร.๙ (King Rama IX Park)",
+              "activity": "เดินชมสวนพฤกษศาสตร์ หอรัชมงคล ถ่ายรูปดอกไม้รับลมหนาวช่วงเช้า",
+              "transitNote": "นั่ง MRT สายสีเหลืองลงสถานีสวนหลวง ร.๙ ต่อสองแถว 10 บาท หรือ BTS อุดมสุข ต่อสองแถวสาย 1014"
+            },
+            {
+              "time": "11:30 - 12:30",
+              "placeId": "transit-transfer",
+              "name": "เดินทางเชื่อมต่อข้ามโซน",
+              "activity": "นั่งสองแถวกลับมาขึ้นรถไฟฟ้า ต่อ MRT สายสีน้ำเงิน มุ่งหน้าสถานีสามยอด",
+              "transitNote": "เดินทางข้ามฝั่งเมือง ไม่กลับโรงแรมเด็ดขาด ทานมื้อเที่ยงระหว่างทาง"
+            },
+            {
+              "time": "12:45 - 16:30",
+              "placeId": "place-sampheng",
+              "name": "ตลาดสำเพ็ง (Sampheng Wholesale Market)",
+              "activity": "เดินช้อปปิ้งสินค้าราคาส่ง ของใช้ กิ๊ฟช็อป ตลาดเปิดเต็มที่ช่วงบ่าย",
+              "transitNote": "ลง MRT สามยอด ทางออก 1 เดิน 450 เมตรเข้าซอยวานิช 1"
+            },
+            {
+              "time": "16:45 - 20:00",
+              "placeId": "place-yaowarat",
+              "name": "ถนนเยาวราช (Chinatown Street Food)",
+              "activity": "เดินทะลุจากสำเพ็งเข้าเยาวราช ทานสตรีทฟู้ดมื้อเย็น (ก๋วยจั๊บ ขนมปังปิ้ง บะหมี่ เกาลัด)",
+              "transitNote": "เดินเท้าจากสำเพ็งมาเยาวราชเพียง 300 เมตร ไม่ต้องเสียค่าเดินทางเพิ่ม"
+            },
+            {
+              "time": "20:15",
+              "placeId": "place-mrt-watmangkon",
+              "name": "สถานี MRT วัดมังกร (BL29)",
+              "activity": "ขึ้น MRT วัดมังกร กลับสู่โรงแรม",
+              "transitNote": "สถานีอยู่บนถนนแปลงนามใจกลางเยาวราช นั่ง MRT สายสีน้ำเงินกลับโรงแรมตรงจุด"
+            }
+          ]
+        },
+        {
+          "planId": "plan-b-time",
+          "planName": "แผน B: เน้นลดเวลาเดินทางและลดการเดิน (Time & Comfort Optimized)",
+          "philosophy": "ใช้ Grab ในช่วงเชื่อมต่อที่ซับซ้อน (เช่น จากสถานีเข้าประตูสวนหลวง ร.๙) เพื่อประหยัดเวลาและพลังงาน",
+          "sequenceSummary": "โรงแรม -> สวนหลวง ร.๙ (เช้า) -> Grab ข้ามเข้าโซนเมือง -> สำเพ็ง -> เยาวราช -> MRT กลับโรงแรม",
+          "reasoning": "ลดเวลาบนรถสองแถวและการรอรถต่อช่วง ทำให้มีเวลาเดินเที่ยวสวนและช้อปปิ้งมากขึ้น แต่แลกด้วยงบ Grab เพิ่มเติมประมาณ 80-120 บาท",
+          "estimatedTransitCosts": {
+            "hotel-latphrao": 230,
+            "hotel-ratchada": 220,
+            "hotel-kaset": 245
+          },
+          "walkingDistanceKm": 3.6,
+          "convenienceScore": 9.2,
+          "timeEfficiencyScore": 9.0
+        },
+        {
+          "planId": "plan-c-balanced",
+          "planName": "แผน C: สมดุลระหว่างราคาและเวลา (Balanced Route)",
+          "philosophy": "ใช้ MRT สายสีเหลืองตรงเข้าสวนหลวง ร.๙ แล้วใช้ BTS สายสีเขียวชมวิวเมืองก่อนเข้าเยาวราช",
+          "sequenceSummary": "โรงแรม -> สวนหลวง ร.๙ -> BTS สุขุมวิท/สยาม แวะพักตากแอร์ -> สำเพ็งช่วงบ่ายแก่ -> เยาวราชหัวค่ำ -> กลับโรงแรม",
+          "reasoning": "ผสมผสานการท่องเที่ยวบน BTS สายสีเขียว (สยาม/ชิดลม) แวะพักดื่มกาแฟหรือทานมื้อเที่ยงในห้างก่อนไปลุยตลาดสำเพ็งและเยาวราช",
+          "estimatedTransitCosts": {
+            "hotel-latphrao": 195,
+            "hotel-ratchada": 185,
+            "hotel-kaset": 195
+          },
+          "walkingDistanceKm": 4.2,
+          "convenienceScore": 9.0,
+          "timeEfficiencyScore": 8.5
+        }
+      ]
+    },
+    {
+      "dayNumber": 5,
+      "date": "2026-12-02",
+      "dayOfWeek": "วันพุธ",
+      "title": "เช็กเอาต์ & เดินทางสู่จุดหมายถัดไป",
+      "concept": "เช็กเอาต์ออกจากโรงแรมไม่เกิน 12:00 น. เดินทางไปยังสถานีขนส่ง สนามบิน หรือจุดหมายต่อไปตามที่ผู้ใช้ระบุ มีช่องให้กรอกปลายทางและค่าโดยสารจริง",
+      "customFields": {
+        "checkoutTime": "12:00",
+        "nextDestination": "",
+        "nextDestinationPlaceholder": "เช่น สนามบินดอนเมือง (DMK), สนามบินสุวรรณภูมิ (BKK), สถานีกลางกรุงเทพอภิวัฒน์ หรือขนส่งหมอชิต",
+        "estimatedFare": 0
+      }
+    }
+  ]
+}

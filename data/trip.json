@@ -1,0 +1,45 @@
+{
+  "tripId": "bkk-trip-nov-2026",
+  "title": "Bangkok Trip Planner 2026",
+  "titleTh": "แผนการเดินทางกรุงเทพฯ 28 พ.ย. - 2 ธ.ค. 2026",
+  "startDate": "2026-11-28",
+  "endDate": "2026-12-02",
+  "nights": 4,
+  "days": 5,
+  "initialPax": 1,
+  "primaryObjectives": [
+    "มหาวิทยาลัยรามคำแหง หัวหมาก (เข้าสอบ วันอาทิตย์ที่ 29 พ.ย. 2026)",
+    "พระนคร วัดสำคัญ และล่องเรือด่วนเจ้าพระยา (วันจันทร์ที่ 30 พ.ย. 2026)",
+    "BTS สายสีเขียว, สวนหลวง ร.9, ตลาดสำเพ็ง และถนนเยาวราช (วันอังคารที่ 1 ธ.ค. 2026)"
+  ],
+  "preferences": {
+    "transitMode": "public_transit_primary",
+    "walkToleranceMeters": 800,
+    "grabDefaultFare": 50,
+    "foodBudgetDailyDefault": 180,
+    "laundryCycleDefault": 110,
+    "hotelSelectedDefault": "hotel-ratchada"
+  },
+  "examDayDefaults": {
+    "date": "2026-11-29",
+    "targetLocation": "มหาวิทยาลัยรามคำแหง หัวหมาก (อาคารสอบ VKB/KTB)",
+    "defaultExamStartTime": "09:30",
+    "defaultExamEndTime": "12:00",
+    "recommendedArrivalTime": "08:45",
+    "bufferMinutes": 45,
+    "notes": "ควรถึงมหาวิทยาลัยก่อนเวลาเริ่มสอบอย่างน้อย 45 นาทีเพื่อหาอาคารสอบและตรวจบัตรประจำตัว"
+  },
+  "departureDayDefaults": {
+    "date": "2026-12-02",
+    "checkoutTime": "12:00",
+    "customDestinationName": "",
+    "customTransitFare": 0
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "createdAt": "2026-10-19",
+    "updatedAt": "2026-10-19",
+    "author": "Antigravity Travel Intelligence Agent",
+    "status": "ready"
+  }
+}

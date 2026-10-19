@@ -1,0 +1,157 @@
+{
+  "currency": "THB",
+  "updatedAt": "2026-10-19",
+  "modes": {
+    "mrt_blue": {
+      "name": "MRT สายสีน้ำเงิน (รถไฟฟ้ามหานคร)",
+      "operator": "BEM / รฟม.",
+      "fareType": "distance_based",
+      "baseFare": 17,
+      "maxFare": 45,
+      "status": "official_verified",
+      "sourceUrl": "https://metro.bemplc.co.th/Fare-Rate",
+      "rules": "เริ่มต้น 17 บาท สูงสุด 45 บาท ตามจำนวนสถานีที่เดินทาง"
+    },
+    "mrt_yellow": {
+      "name": "MRT สายสีเหลือง (ลาดพร้าว - สำโรง)",
+      "operator": "EBM / รฟม.",
+      "fareType": "distance_based",
+      "baseFare": 15,
+      "maxFare": 45,
+      "status": "official_verified",
+      "sourceUrl": "https://www.mrta-yellowline.com",
+      "rules": "เริ่มต้น 15 บาท สูงสุด 45 บาท ตามจำนวนสถานี"
+    },
+    "bts_green": {
+      "name": "BTS สายสีเขียว (สุขุมวิท)",
+      "operator": "BTSC",
+      "fareType": "distance_based",
+      "baseFare": 17,
+      "maxFare": 47,
+      "extensionFlatFare": 15,
+      "status": "official_verified",
+      "sourceUrl": "https://www.bts.co.th/tickets/ticket-type.html",
+      "rules": "เส้นทางสัมปทานหลัก 17-47 บาท ส่วนต่อขยายหมอชิต-คูคต และแบริ่ง-เคหะฯ คิดอัตราตามประกาศ กทม."
+    },
+    "chaophraya_boat_orange": {
+      "name": "เรือด่วนเจ้าพระยา ธงส้ม (Chao Phraya Express Boat)",
+      "operator": "บริษัท เรือด่วนเจ้าพระยา จำกัด",
+      "fareType": "flat",
+      "fare": 16,
+      "status": "official_verified",
+      "sourceUrl": "https://www.chaophrayaexpressboat.com",
+      "rules": "ราคาเดียวตลอดสาย 16 บาท ให้บริการทุกวัน"
+    },
+    "river_cross_ferry": {
+      "name": "เรือข้ามฟากแม่น้ำเจ้าพระยา (ท่าเตียน - วัดอรุณ)",
+      "operator": "ท่าเรือข้ามฟากเอกชน",
+      "fareType": "flat",
+      "fare": 5,
+      "status": "official_verified",
+      "sourceUrl": "https://www.chaophrayaexpressboat.com",
+      "rules": "เที่ยวละ 5 บาท จ่ายสดหรือสแกนที่โป๊ะเรือ"
+    },
+    "saensaep_boat": {
+      "name": "เรือโดยสารคลองแสนแสบ (ท่ารามคำแหง - ท่าอโศก/ผ่านฟ้า)",
+      "operator": "บริษัท ครอบครัวขนส่ง (2002) จำกัด",
+      "fareType": "distance_based",
+      "minFare": 12,
+      "maxFare": 22,
+      "avgExamFare": 14,
+      "status": "official_verified",
+      "sourceUrl": "https://khlongsaensaep.com",
+      "rules": "ระยะใกล้ 12-14 บาท วิ่งเร็ว หลีกเลี่ยงรถติดได้ดีเยี่ยม"
+    },
+    "bmta_bus": {
+      "name": "รถประจำทาง ขสมก. / รถเมล์เอกชน TSB",
+      "operator": "ขสมก. และ ไทย สมายล์ บัส",
+      "fareType": "mode_based",
+      "regularFare": 8,
+      "airconFareMin": 15,
+      "airconFareMax": 25,
+      "status": "official_verified",
+      "sourceUrl": "http://www.bmta.co.th",
+      "rules": "รถร้อน ขสมก. 8 บาท / รถปรับอากาศ NGV/EV 15 - 25 บาท ตามระยะทาง"
+    },
+    "songthaew": {
+      "name": "รถสองแถวท้องถิ่น (เช่น อุดมสุข - สวนหลวง ร.๙ / ซอยเสนานิคม)",
+      "operator": "สหกรณ์เดินรถท้องถิ่น",
+      "fareType": "flat",
+      "fare": 10,
+      "status": "estimated_standard",
+      "rules": "เที่ยวละ 10 บาท ตลอดสาย"
+    },
+    "hotel_tuktuk_ratchada": {
+      "name": "รถตุ๊กตุ๊กรับส่งฟรี Infinite Hotel @Ratchada",
+      "operator": "Infinite Hotel Ratchada",
+      "fareType": "conditional_free",
+      "returnFare": 0,
+      "outboundFare": 25,
+      "status": "user_baseline_assumption",
+      "rules": "ขากลับจาก MRT ห้วยขวางมาโรงแรม ฟรี 0 บาท ตามสมมติฐานหลัก ขาไปประมาณการ 25 บาท หรือเดินฟรี"
+    },
+    "grab_ride": {
+      "name": "บริการเรียกรถ Grab / Ride-Hailing",
+      "operator": "Grab Thailand",
+      "fareType": "user_adjustable_estimate",
+      "defaultFare": 50,
+      "status": "user_baseline_assumption",
+      "rules": "สมมติฐานเริ่มต้น 50 บาทต่อเที่ยว ปรับแต่งได้ตามต้องการ ไม่คิดบวกอัตโนมัติทุกช่วง"
+    },
+    "walk": {
+      "name": "เดินเท้า (Walk)",
+      "fare": 0,
+      "status": "always_free"
+    }
+  },
+  "specificFares": [
+    {
+      "from": "hotel-latphrao",
+      "to": "place-ramkhamhaeng",
+      "recommendedMode": "bmta_bus",
+      "farePerPax": 20,
+      "type": "estimated_standard",
+      "note": "รถเมล์ปรับอากาศสาย 92, 122, 137 ค่าโดยสารประมาณ 15-20 บาท"
+    },
+    {
+      "from": "hotel-ratchada",
+      "to": "place-ramkhamhaeng",
+      "recommendedMode": "mrt_blue_then_boat",
+      "farePerPax": 35,
+      "type": "calculated_verified",
+      "note": "MRT ห้วยขวางไปเพชรบุรี (21 บาท) + เรือแสนแสบไป ม.รามคำแหง (14 บาท) = 35 บาท"
+    },
+    {
+      "from": "hotel-kaset",
+      "to": "place-ramkhamhaeng",
+      "recommendedMode": "bts_then_mrt_then_boat",
+      "farePerPax": 60,
+      "type": "calculated_verified",
+      "note": "BTS เสนานิคมไปหมอชิต (25 บาท) + MRT สวนจตุจักรไปเพชรบุรี (35 บาท) + เรือแสนแสบ (14 บาท) = 74 บาท (หรือรถเมล์สายตรง 545/126 ~25 บาท)"
+    },
+    {
+      "from": "hotel-latphrao",
+      "to": "place-mrt-sanamchai",
+      "recommendedMode": "mrt_yellow_transfer_blue",
+      "farePerPax": 65,
+      "type": "calculated_verified",
+      "note": "MRT สีเหลือง ลาดพร้าว 83 ไปสถานีลาดพร้าว (22 บาท) + MRT สีน้ำเงิน ลาดพร้าว ไปสนามไชย (43 บาท) = 65 บาท"
+    },
+    {
+      "from": "hotel-ratchada",
+      "to": "place-mrt-sanamchai",
+      "recommendedMode": "mrt_blue",
+      "farePerPax": 43,
+      "type": "official_verified",
+      "note": "MRT สายสีน้ำเงิน ห้วยขวาง ไปสนามไชย ตรงไม่ต้องเปลี่ยนสาย 43 บาท"
+    },
+    {
+      "from": "hotel-kaset",
+      "to": "place-mrt-sanamchai",
+      "recommendedMode": "bts_transfer_mrt",
+      "farePerPax": 68,
+      "type": "calculated_verified",
+      "note": "BTS เสนานิคม ไปหมอชิต (25 บาท) + MRT สวนจตุจักร ไปสนามไชย (43 บาท) = 68 บาท"
+    }
+  ]
+}

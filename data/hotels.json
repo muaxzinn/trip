@@ -1,0 +1,203 @@
+[
+  {
+    "id": "hotel-latphrao",
+    "name": "LEE Hotel Lat Phrao",
+    "nameTh": "ลี โฮเทล ลาดพร้าว",
+    "address": "2539 Lat Phrao Road, Khlong Chaokhun Sing, Wang Thonglang, Bangkok 10310, Thailand",
+    "latitude": 13.7788,
+    "longitude": 100.6135,
+    "coordinatesStatus": "verified",
+    "priceTotal": 4050,
+    "pricePerNight": 1012.5,
+    "priceCurrency": "THB",
+    "priceBasis": "user-provided-room-total-4nights",
+    "nearestStation": {
+      "name": "MRT ลาดพร้าว 83 (สายสีเหลือง YL05)",
+      "line": "MRT Yellow Line",
+      "distanceMeters": 250,
+      "walkMinutes": 4,
+      "verifiedStatus": "verified",
+      "notes": "เดินเท้าสะดวกมาก อยู่ใกล้สถานีและห้างอิมพีเรียล เวิลด์ ลาดพร้าว / Big C"
+    },
+    "secondaryStation": {
+      "name": "MRT มหาดไทย (สายสีเหลือง YL06)",
+      "distanceMeters": 900,
+      "walkMinutes": 12
+    },
+    "transitToRamkhamhaeng": {
+      "distanceKm": 4.5,
+      "recommendedMode": "รถเมล์สาย 92, 122, 137, 545 หรือ MRT สายสีเหลืองลงบางกะปิแล้วต่อเรือคลองแสนแสบ",
+      "avgTravelTimeMinutes": 25,
+      "estimatedFare": 20,
+      "convenienceRating": 9.5
+    },
+    "tukTukService": {
+      "hasService": false,
+      "notes": "ไม่มีรถตุ๊กตุ๊กรับส่งของโรงแรม เนื่องจากอยู่ใกล้สถานีรถไฟฟ้าสายสีเหลือง ลาดพร้าว 83 เพียง 250 ม."
+    },
+    "pros": [
+      "ใกล้ ม.รามคำแหง หัวหมาก มากที่สุด (~4.5 กม.) มีรถเมล์ตรงหลายสาย และนั่งมอเตอร์ไซค์/Grab ได้ในราคาประหยัด",
+      "ใกล้สถานี MRT ลาดพร้าว 83 (สายสีเหลือง) เพียง 250 เมตร เดินสบาย ไม่ต้องพึ่งพารถรับส่ง",
+      "ใกล้ห้างอิมพีเรียล เวิลด์ ลาดพร้าว / Big C และร้านสะดวกซัก Otteri ลาดพร้าว 87",
+      "ความเสี่ยงเรื่องรถติดในวันสอบต่ำที่สุดเมื่อเทียบกับอีก 2 โรงแรม"
+    ],
+    "cons": [
+      "ราคาห้องพัก 4 คืนสูงที่สุดใน 3 โรงแรม (4,050 บาท)",
+      "การเดินทางไปพระนคร/เยาวราชต้องเปลี่ยนสายจากสีเหลือง (ลาดพร้าว) ไปสีน้ำเงิน ทำให้เสียค่าโดยสารซ้อนสาย",
+      "อยู่นอกโซนสุขุมวิท / BTS สายสีเขียว หากจะเที่ยวสยามหรือสุขุมวิทต้องนั่งรถไฟฟ้าอ้อม"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=LEE+Hotel+Lat+Phrao+Bangkok",
+    "officialUrl": null,
+    "sources": [
+      {
+        "url": "https://www.google.com/maps/search/?api=1&query=LEE+Hotel+Lat+Phrao+Bangkok",
+        "title": "Google Maps Listing - LEE Hotel Lat Phrao",
+        "type": "maps-listing",
+        "checkedAt": "2026-10-19"
+      },
+      {
+        "url": "https://www.mrta-yellowline.com",
+        "title": "MRTA Yellow Line Official Map (Lat Phrao 83 Station)",
+        "type": "official-transit",
+        "checkedAt": "2026-10-19"
+      }
+    ]
+  },
+  {
+    "id": "hotel-ratchada",
+    "name": "Infinite Hotel @Ratchada",
+    "nameTh": "อินฟินิท โฮเทล @รัชดา (เดิม CK2 Hotel)",
+    "address": "95 Soi Inthamara 22, Sutthisarn Winitchai Road, Din Daeng, Bangkok 10400, Thailand",
+    "latitude": 13.7852,
+    "longitude": 100.5637,
+    "coordinatesStatus": "verified",
+    "priceTotal": 3480,
+    "pricePerNight": 870,
+    "priceCurrency": "THB",
+    "priceBasis": "user-provided-room-total-4nights",
+    "nearestStation": {
+      "name": "MRT ห้วยขวาง (สายสีน้ำเงิน BL18)",
+      "line": "MRT Blue Line",
+      "distanceMeters": 1700,
+      "walkMinutes": 21,
+      "verifiedStatus": "verified",
+      "notes": "ระยะเดินจริง 1.7 กม. ค่อนข้างไกล แต่มีรถตุ๊กตุ๊กของโรงแรมรับส่งฟรีตามเงื่อนไข"
+    },
+    "secondaryStation": {
+      "name": "MRT สุทธิสาร (สายสีน้ำเงิน BL17)",
+      "distanceMeters": 1600,
+      "walkMinutes": 20
+    },
+    "transitToRamkhamhaeng": {
+      "distanceKm": 9.5,
+      "recommendedMode": "MRT ห้วยขวาง -> MRT เพชรบุรี ต่อเรือด่วนคลองแสนแสบ หรือรถเมล์สาย 137 ตรงจาก ถ.รัชดาภิเษก",
+      "avgTravelTimeMinutes": 45,
+      "estimatedFare": 35,
+      "convenienceRating": 6.5
+    },
+    "tukTukService": {
+      "hasService": true,
+      "shuttleCondition": "free_return_assumed",
+      "freeLeg": "MRT_to_Hotel_only",
+      "outboundCostEstimate": 25,
+      "notes": "ตามข้อมูลตั้งต้น กำหนดสมมติฐานว่าใช้บริการฟรีเฉพาะ 'ขากลับจาก MRT ห้วยขวาง มายังโรงแรม' (0 บาท) ส่วนขาออกจากโรงแรมไป MRT มีทางเลือก: เดิน (ฟรี), วินมอเตอร์ไซค์/Grab (~25-50 บาท) หรือสอบถามรอบรถของโรงแรม"
+    },
+    "pros": [
+      "เชื่อมต่อ MRT สายสีน้ำเงิน ซึ่งวิ่งตรงไปยังพระนคร (สนามไชย, สามยอด) และเยาวราช (วัดมังกร) โดยไม่ต้องเปลี่ยนสายรถไฟฟ้า",
+      "ราคาห้องพักระดับปานกลาง (3,480 บาท รวม 4 คืน เฉลี่ย 870 บาท/คืน)",
+      "ใกล้แหล่งสตรีทฟู้ด ตลาดห้วยขวาง และร้านอาหารเปิดดึกมากมาย",
+      "มีบริการรถตุ๊กตุ๊กรับกลับโรงแรมฟรี ช่วยประหยัดค่าเดินทางขากลับได้จริง"
+    ],
+    "cons": [
+      "ระยะห่างจากสถานี MRT ห้วยขวาง 1.7 กม. ไม่สามารถเดินเท้าได้สะดวกในเวลาร้อนหรือเร่งรีบ",
+      "ขาไป MRT หากไม่ทันรอบรถโรงแรม อาจต้องเสียค่าวินมอเตอร์ไซค์หรือ Grab เพิ่มเติม",
+      "เดินทางไป ม.รามคำแหง ต้องเผื่อเวลาจากรถติดบน ถ.รัชดาภิเษก และ ถ.พระราม 9"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Infinite+Hotel+Ratchada+Bangkok",
+    "officialUrl": "https://infinite-hotel.com/th/ratchada",
+    "sources": [
+      {
+        "url": "https://infinite-hotel.com/ratchada",
+        "title": "Official Website - Infinite Hotel Ratchada",
+        "type": "official-website",
+        "checkedAt": "2026-10-19"
+      },
+      {
+        "url": "https://infinite-hotel.com/th/ratchada",
+        "title": "Official Thai Website - Infinite Hotel Ratchada",
+        "type": "official-website",
+        "checkedAt": "2026-10-19"
+      },
+      {
+        "url": "https://www.google.com/maps/search/?api=1&query=Infinite+Hotel+Ratchada+Bangkok",
+        "title": "Google Maps Listing - Infinite Hotel Ratchada",
+        "type": "maps-listing",
+        "checkedAt": "2026-10-19"
+      }
+    ]
+  },
+  {
+    "id": "hotel-kaset",
+    "name": "Infinite Hotel @Kaset / Senanikom",
+    "nameTh": "อินฟินิท โฮเทล @เกษตร / เสนานิคม",
+    "address": "119/9–10 Soi Phahonyothin 32, Senanikom, Chatuchak, Bangkok 10900, Thailand",
+    "latitude": 13.8322,
+    "longitude": 100.5755,
+    "coordinatesStatus": "verified",
+    "priceTotal": 3120,
+    "pricePerNight": 780,
+    "priceCurrency": "THB",
+    "priceBasis": "user-provided-room-total-4nights",
+    "nearestStation": {
+      "name": "BTS เสนานิคม (สายสีเขียวสุขุมวิท N12)",
+      "line": "BTS Sukhumvit Line",
+      "distanceMeters": 800,
+      "walkMinutes": 11,
+      "verifiedStatus": "verified",
+      "notes": "ระยะเดินจริง 800 เมตร ทางเท้าในซอยพหลโยธิน 32 สามารถเดินได้ใน 10-12 นาที หรือนั่งสองแถว/วินมอเตอร์ไซค์ 10-15 บาท"
+    },
+    "secondaryStation": {
+      "name": "BTS มหาวิทยาลัยเกษตรศาสตร์ (สายสีเขียว N13)",
+      "distanceMeters": 1100,
+      "walkMinutes": 15
+    },
+    "transitToRamkhamhaeng": {
+      "distanceKm": 13.8,
+      "recommendedMode": "BTS เสนานิคม -> BTS หมอชิต ต่อ MRT สวนจตุจักร -> MRT เพชรบุรี ต่อเรือแสนแสบ หรือรถเมล์สาย 126, 545 จาก ถ.พหลโยธิน",
+      "avgTravelTimeMinutes": 60,
+      "estimatedFare": 60,
+      "convenienceRating": 5.0
+    },
+    "tukTukService": {
+      "hasService": false,
+      "notes": "ไม่มีรถรับส่งของโรงแรม เดินเท้าตามซอยเสนานิคม 1 ออกสู่ ถ.พหลโยธิน หรือนั่งรถสองแถวแดงในซอย"
+    },
+    "pros": [
+      "ราคาห้องพัก 4 คืนถูกที่สุดใน 3 ตัวเลือก (3,120 บาท เฉลี่ย 780 บาท/คืน) ประหยัดค่าห้องได้ 930 บาทเมื่อเทียบกับ LEE Hotel",
+      "ใกล้ BTS สายสีเขียว (สถานีเสนานิคม) นั่งยาวเข้าสยาม อโศก หรือเปลี่ยนไปแบริ่ง/สมุทรปราการได้โดยไม่ต้องต่อสาย",
+      "ของกินรอบ ม.เกษตรศาสตร์ และตลาดอมรพันธ์ ราคาถูก สไตล์นักศึกษา",
+      "ใกล้ร้านสะดวกซัก Otteri เสนานิคม 1, Wonder Wash และ WashXpress"
+    ],
+    "cons": [
+      "อยู่ไกล ม.รามคำแหง หัวหมาก มากที่สุด (~13.8 กม.) เดินทางใช้เวลานานที่สุด (เกือบ 1 ชม.) และค่าโดยสารไปสอบแพงที่สุด",
+      "ระยะเดินไป BTS 800 เมตร หากมีสัมภาระหรือเดินตอนเที่ยงอาจเหนื่อย",
+      "การเดินทางไปพระนครและเยาวราชต้องต่อรถไฟฟ้า 2 ระบบ (BTS + MRT) ทำให้ค่าโดยสารรวมสูงขึ้น"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Infinite+Hotel+Senanikom+Bangkok",
+    "officialUrl": "https://infinite-hotel.com/senanikom",
+    "sources": [
+      {
+        "url": "https://infinite-hotel.com/senanikom",
+        "title": "Official Website - Infinite Hotel Senanikom",
+        "type": "official-website",
+        "checkedAt": "2026-10-19"
+      },
+      {
+        "url": "https://www.google.com/maps/search/?api=1&query=Infinite+Hotel+Senanikom+Bangkok",
+        "title": "Google Maps Listing - Infinite Hotel Senanikom",
+        "type": "maps-listing",
+        "checkedAt": "2026-10-19"
+      }
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "src-infinite-ratchada",
+    "name": "Infinite Hotel @Ratchada Official Website",
+    "url": "https://infinite-hotel.com/th/ratchada",
+    "type": "official_hotel",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "ตรวจสอบที่อยู่ (ซอยอินทามระ 22), สิ่งอำนวยความสะดวก, และบริการรถตุ๊กตุ๊กรับส่ง MRT ห้วยขวาง"
+  },
+  {
+    "id": "src-infinite-kaset",
+    "name": "Infinite Hotel @Senanikom Official Website",
+    "url": "https://infinite-hotel.com/senanikom",
+    "type": "official_hotel",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "ตรวจสอบที่อยู่ (พหลโยธิน 32 แยก 8), ระยะทางไป BTS เสนานิคม (~800 ม.)"
+  },
+  {
+    "id": "src-lee-hotel",
+    "name": "Google Maps & Booking Listings - LEE Hotel Lat Phrao",
+    "url": "https://www.google.com/maps/search/?api=1&query=LEE+Hotel+Lat+Phrao+Bangkok",
+    "type": "maps_listing",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "ตรวจสอบที่ตั้ง 2539 ถ.ลาดพร้าว ใกล้ซอย 83 และ MRT สายสีเหลือง ลาดพร้าว 83"
+  },
+  {
+    "id": "src-mrta-yellow",
+    "name": "MRTA Yellow Line Official Fare & Stations",
+    "url": "https://www.mrta-yellowline.com",
+    "type": "official_transit",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "ตารางค่าโดยสาร 15-45 บาท ตำแหน่งสถานีลาดพร้าว 83 (YL05) และสถานีสวนหลวง ร.๙ (YL15)"
+  },
+  {
+    "id": "src-bem-blue",
+    "name": "BEM Blue Line Official Fare Table",
+    "url": "https://metro.bemplc.co.th/Fare-Rate",
+    "type": "official_transit",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "ตารางค่าโดยสาร MRT สายสีน้ำเงิน 17-45 บาท สถานีห้วยขวาง, เพชรบุรี, สนามไชย, สามยอด, วัดมังกร"
+  },
+  {
+    "id": "src-bts-sukhumvit",
+    "name": "BTS Official Fare & Route Information",
+    "url": "https://www.bts.co.th",
+    "type": "official_transit",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "สถานีเสนานิคม (N12), หมอชิต (N8), อโศก (E4), อุดมสุข (E12)"
+  },
+  {
+    "id": "src-chaophraya-express",
+    "name": "Chao Phraya Express Boat Official Rates",
+    "url": "https://www.chaophrayaexpressboat.com",
+    "type": "official_transit",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "เรือด่วนเจ้าพระยาธงส้ม 16 บาทตลอดสาย ท่าช้าง ท่าเตียน ท่าพระอาทิตย์ และเรือข้ามฟาก 5 บาท"
+  },
+  {
+    "id": "src-otteri-wash",
+    "name": "Otteri Wash & Dry Official Store Locator",
+    "url": "https://www.otteriwashdry.com",
+    "type": "official_service",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "สาขาลาดพร้าว 87 และสาขาเสนานิคม 1 (พหลโยธิน 32) เปิดบริการ 24 ชั่วโมง"
+  },
+  {
+    "id": "src-washxpress",
+    "name": "WashXpress Official App & Branches",
+    "url": "https://washxpressth.com",
+    "type": "official_service",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "สาขาเสนานิคม 1 (บิ๊กซี) ร้านสะดวกซัก 24 ชม."
+  },
+  {
+    "id": "src-suanluang-rama9",
+    "name": "King Rama IX Park (Suan Luang Rama IX)",
+    "url": "http://suanluangrama9.or.th",
+    "type": "official_park",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "เวลาทำการ 05:00 - 19:00 ค่าธรรมเนียมเข้าชม 10 บาท (09:00-17:00)"
+  },
+  {
+    "id": "src-grand-palace",
+    "name": "The Grand Palace Official Site",
+    "url": "https://www.royalgrandpalace.th",
+    "type": "official_attraction",
+    "confidence": "high",
+    "checkedAt": "2026-10-19",
+    "description": "เวลาทำการ 08:30 - 15:30 การแต่งกายสุภาพ คนไทยเข้าฟรี"
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "baselineModels": {
+    "hotel-latphrao": {
+      "hotelName": "LEE Hotel Lat Phrao",
+      "roomTotal4Nights": 4050,
+      "roomPerNight": 1012.5,
+      "publicTransitTotal": 436,
+      "grabReserve": 0,
+      "foodTotal5Days": 900,
+      "laundryTotal": 110,
+      "baselineGrandTotal": 5496,
+      "dailyTransitBreakdown": {
+        "day2Exam": 70,
+        "day3PhraNakhon": 176,
+        "day4GreenLineSuanLuang": 190
+      }
+    },
+    "hotel-ratchada": {
+      "hotelName": "Infinite Hotel @Ratchada",
+      "roomTotal4Nights": 3480,
+      "roomPerNight": 870,
+      "publicTransitTotal": 406,
+      "grabReserve": 150,
+      "foodTotal5Days": 900,
+      "laundryTotal": 110,
+      "baselineGrandTotal": 5046,
+      "dailyTransitBreakdown": {
+        "day2Exam": 100,
+        "day3PhraNakhon": 126,
+        "day4GreenLineSuanLuang": 180
+      }
+    },
+    "hotel-kaset": {
+      "hotelName": "Infinite Hotel @Kaset / Senanikom",
+      "roomTotal4Nights": 3120,
+      "roomPerNight": 780,
+      "publicTransitTotal": 546,
+      "grabReserve": 100,
+      "foodTotal5Days": 900,
+      "laundryTotal": 110,
+      "baselineGrandTotal": 4776,
+      "dailyTransitBreakdown": {
+        "day2Exam": 180,
+        "day3PhraNakhon": 176,
+        "day4GreenLineSuanLuang": 190
+      }
+    }
+  },
+  "defaultConfig": {
+    "pax": 1,
+    "nights": 4,
+    "days": 5,
+    "foodDaily": 180,
+    "foodMealSplit": {
+      "breakfast": 40,
+      "lunch": 70,
+      "dinner": 60,
+      "snack": 10
+    },
+    "laundryCostPerCycle": 110,
+    "laundryCycles": 1,
+    "laundryBreakdown": {
+      "wash": 50,
+      "dry": 50,
+      "detergent": 10
+    },
+    "grabFarePerTrip": 50,
+    "emergencyBuffer": 500,
+    "keycardDepositRefundable": 500,
+    "enableInfiniteRatchadaFreeTukTuk": true
+  },
+  "disclaimer": "ตัวเลขงบประมาณตั้งต้นเป็นข้อมูลสำหรับการวางแผนเบื้องต้น เว็บไซต์รองรับการคำนวณใหม่แบบเรียลไทม์ตามเส้นทางที่ปรับแต่งจริง"
+}
